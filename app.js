@@ -7,14 +7,11 @@ const nextSequence = () => {
     pattern.push(colorArray[number])
 }
 
-const playSequence = () =>
-{
-    for(let i = 0; i < pattern.length; i++)
+const playSound = (sound) => {
+
+    switch(sound)
     {
-        $(`.${pattern[i]}`).fadeOut(150).fadeIn(150)
-        switch (pattern[i])
-        {
-            case 'green':
+        case 'green':
                 audio.setAttribute('src', './sounds/green.mp3');
                 audio.play();
                 break;
@@ -32,17 +29,25 @@ const playSequence = () =>
                 break;
             default:
                 break;
-        }
+    }
+}
+
+const playSequence = () =>
+{
+    for(let i = 0; i < pattern.length; i++)
+    {
+        $(`.${pattern[i]}`).fadeOut(150).fadeIn(150)
+        playSound(pattern[i])
+        
     }
 }
 
 
-nextSequence()
-console.log(pattern)
-playSequence()
 
 $('.btn').click( (event) => {
     let clicked = event.target.classList[1]
     clickpattern.push(clicked)
+    console.log(clicked)
+    playSound(clicked)
 })
 
