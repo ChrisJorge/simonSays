@@ -1,5 +1,6 @@
 let colorArray = ['green','red','blue','yellow'];
 let pattern = [];
+let clickpattern = [];
 let audio = document.createElement('audio')
 const nextSequence = () => {
     let number = Math.floor(Math.random() * 4)
@@ -35,6 +36,13 @@ const playSequence = () =>
     }
 }
 
+
 nextSequence()
 console.log(pattern)
 playSequence()
+
+$('.btn').click( (event) => {
+    let clicked = event.target.classList[1]
+    clickpattern.push(clicked)
+})
+
