@@ -5,7 +5,14 @@ const nextSequence = () => {
     pattern.push(colorArray[number])
 }
 
-console.log(nextSequence())
-console.log(pattern)
+const playSequence = () =>
+{
+    for(let i = 0; i < pattern.length; i++)
+    {
+        $(`.${pattern[i]}`).fadeOut(150).fadeIn(150)
+    }
+}
 
-$(h1).remove()
+nextSequence()
+console.log(pattern)
+playSequence()
