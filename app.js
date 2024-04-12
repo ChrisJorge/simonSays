@@ -42,12 +42,18 @@ const playSequence = () =>
     }
 }
 
+const animate = (color) => {
+    $(`.${color}`).addClass('pressed')
 
+    setTimeout( () => {
+        $(`.${color}`).removeClass('pressed')
+    }, 100)
+}
 
 $('.btn').click( (event) => {
     let clicked = event.target.classList[1]
     clickpattern.push(clicked)
-    console.log(clicked)
     playSound(clicked)
+    animate(clicked)
 })
 
