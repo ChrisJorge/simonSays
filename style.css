@@ -3,7 +3,7 @@ body {
     background-color: #011F3F;
   }
   
-  .title {
+  .title, .title2 {
     font-family: 'Press Start 2P', cursive;
     font-size: 3rem;
     margin:  5%;
@@ -63,4 +63,8 @@ body {
 
 svg:hover + .dropDown{
   display: block;
+}
+
+.gameContainer{
+  display: none;
 }

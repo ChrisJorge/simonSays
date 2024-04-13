@@ -5,13 +5,13 @@ let audio = document.createElement('audio');
 let level = 0;
 let clickCount = -1;
 let i = 0
-let title = $('.title')[0];
+let title = $('.title2')[0];
 const nextSequence = () => {
+    console.log(level)
     level ++;
     title.innerHTML = `Level ${level}`
     let number = Math.floor(Math.random() * 4)
     pattern.push(colorArray[number])
-    // playSequence()
     timer()
 }
 
@@ -138,8 +138,11 @@ $('.btn').click( (event) => {
         console.log('Event listener on')
         started = true
         console.log(started)
-        nextSequence()
-        playSequence()
+        if(difficulty === 'easy')
+        {
+            nextSequence()
+            playSequence()
+        }
         if(started)
         {
             console.log('event listener off')
@@ -155,7 +158,29 @@ const restart = () =>
     clickCount = -1
 }
 
-if(difficulty === 'undefined')
-{
-    $('.gameContainer').toggle()
+// if(difficulty === 'undefined')
+// {
+//     $('.gameContainer').toggle()
+// }
+
+const easy = () => {
+    difficulty = 'easy'
+    $('.startContainer').css('display', 'none')
+    $('.gameContainer').css('display', 'block')
+    start()
+
+}
+
+const medium = () => {
+    difficulty = 'medium'
+    $('.startContainer').css('display', 'none')
+    $('.gameContainer').css('display', 'block')
+    start()
+}
+
+const hard = () => {
+    difficulty = 'medium'
+    $('.startContainer').css('display', 'none')
+    $('.gameContainer').css('display', 'block')
+    start()
 }
