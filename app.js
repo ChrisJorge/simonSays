@@ -1,4 +1,5 @@
 let colorArray = ['green','red','blue','yellow'];
+let difficulty = 'undefined'
 let pattern = [];
 let audio = document.createElement('audio');
 let level = 0;
@@ -154,6 +155,7 @@ const restart = () =>
     clickCount = -1
 }
 
-
-
-game(1)
+if(difficulty === 'undefined')
+{
+    $('.gameContainer').toggle()
+}

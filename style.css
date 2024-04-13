@@ -10,6 +10,9 @@ body {
     color: #FEF2BF;
   }
 
+  p{
+    font-family: 'Press Start 2P', cursive;
+  }
   .container {
     display: block;
     width: 50%;
@@ -17,7 +20,7 @@ body {
   
   }
   
-  .btn {
+  .btn, .bttn{
     margin: 25px;
     display: inline-block;
     height: 200px;
@@ -25,6 +28,8 @@ body {
     border: 10px solid black;
     border-radius: 20%;
   }
+
+
   
   .gameOver {
     background-color: red;
@@ -52,3 +57,10 @@ body {
     background-color: grey;
   }
   
+  .dropDown{
+    display: none;
+  }
+
+svg:hover + .dropDown{
+  display: block;
+}
