@@ -20,6 +20,10 @@ body {
   
   }
   
+  .center{
+    display: none;
+    justify-content: center;
+  }
   .btn, .bttn{
     margin: 25px;
     display: inline-block;

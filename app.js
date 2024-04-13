@@ -142,7 +142,9 @@ const gameOver = () => {
     }, 200)
     audio.setAttribute('src', './sounds/wrong.mp3')
     audio.play()
+    $('.center').css('display', 'flex')
     $(document).on('keypress', () => {
+        $('.center').css('display', 'none')
         restart()
         game(1)
     })
@@ -209,4 +211,9 @@ const hard = () => {
     $('.startContainer').css('display', 'none')
     $('.gameContainer').css('display', 'block')
     start()
+}
+
+const changeDifficulty = () => {
+    $('.startContainer').css('display', 'block')
+    $('.gameContainer').css('display', 'none')
 }
