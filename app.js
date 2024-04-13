@@ -1,6 +1,5 @@
 let colorArray = ['green','red','blue','yellow'];
 let pattern = [];
-let clickpattern = [];
 let audio = document.createElement('audio');
 let level = 0;
 let clickCount = -1;
@@ -93,15 +92,28 @@ const checkAnswer = (clicked) => {
     
 }
 
+const game = (code) => {
+
+    if(code === 1)
+    {
+        start()
+    }
+}
+
 const gameOver = () => {
     $('body').addClass('gameOver')
-    title.innerHTML = "Game Over, Press Any Key to Restart!"
+    title.innerHTML = "Game Over, Press Any Key Twice to Restart!"
     setTimeout(()=>{
         $('body').removeClass('gameOver');
     }, 200)
     audio.setAttribute('src', './sounds/wrong.mp3')
     audio.play()
+    $(document).on('keypress', () => {
+        restart()
+        game(1)
+    })
 }
+
 $('.btn').click( (event) => {
     let clicked = event.target.classList[1]
     console.log(pattern)
@@ -117,16 +129,31 @@ $('.btn').click( (event) => {
 })
 
 
- 
-$(document).on('keypress', () => 
-{
-    let started = true
-    console.log(started)
-    nextSequence()
-    playSequence()
-    if(started)
+ const start = () => 
+ {
+    let started = false;
+    $(document).on('keypress', () => 
     {
-        console.log('event listener off')
-        $(document).off('keypress');
-    }
-})
+        console.log('Event listener on')
+        started = true
+        console.log(started)
+        nextSequence()
+        playSequence()
+        if(started)
+        {
+            console.log('event listener off')
+            $(document).off('keypress');
+        }
+    })
+ }
+
+const restart = () => 
+{
+    level = 0;
+    pattern = []
+    clickCount = -1
+}
+
+
+
+game(1)
