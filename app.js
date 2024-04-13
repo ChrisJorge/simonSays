@@ -1,7 +1,8 @@
 let colorArray = ['green','red','blue','yellow'];
 let pattern = [];
 let clickpattern = [];
-let audio = document.createElement('audio')
+let audio = document.createElement('audio');
+let level = 0;
 const nextSequence = () => {
     let number = Math.floor(Math.random() * 4)
     pattern.push(colorArray[number])
@@ -57,3 +58,20 @@ $('.btn').click( (event) => {
     animate(clicked)
 })
 
+
+
+
+
+ 
+$(document).on('keypress', () => 
+{
+    let started = true
+    console.log(started)
+    nextSequence()
+    playSequence()
+    if(started)
+    {
+        console.log('event listener off')
+        $(document).off('keypress');
+    }
+})
