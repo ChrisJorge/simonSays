@@ -10,9 +10,26 @@ body {
     color: #FEF2BF;
   }
 
+  .tutorial{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #FEF2BF;
+    font-size: 30px;
+  }
+
+  .tutorialDropDown{
+    display: none;
+    color: #FEF2BF;
+    font-size: 30px;
+  }
+  .tutorial svg{
+    margin-left: 10px;
+  }
   p{
     font-family: 'Press Start 2P', cursive;
   }
+
   .container {
     display: block;
     width: 50%;
@@ -71,4 +88,8 @@ svg:hover + .dropDown{
 
 .gameContainer{
   display: none;
+}
+
+.tutorial:hover + .tutorialDropDown{
+ display: block;
 }
