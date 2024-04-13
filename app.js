@@ -3,7 +3,10 @@ let pattern = [];
 let clickpattern = [];
 let audio = document.createElement('audio');
 let level = 0;
+let title = $('.title')[0];
 const nextSequence = () => {
+    level ++;
+    title.innerHTML = `Level ${level}`
     let number = Math.floor(Math.random() * 4)
     pattern.push(colorArray[number])
 }
