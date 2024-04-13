@@ -12,7 +12,19 @@ const nextSequence = () => {
     title.innerHTML = `Level ${level}`
     let number = Math.floor(Math.random() * 4)
     pattern.push(colorArray[number])
-    timer()
+    if(difficulty === 'easy')
+    {
+        timer()
+    }
+    else if (difficulty === 'medium')
+    {
+        timerMedium()
+    }
+    else if (difficulty === 'hard')
+    {
+
+    }
+
 }
 
 const playSound = (sound) => {
@@ -57,6 +69,20 @@ const timer = () => {
             i = 0;
         }
     }, 1000)
+}
+
+const timerMedium = () => {
+    playSequence(i)
+    i += 1
+    setTimeout( () => {
+        if(i < pattern.length)
+        {
+            timer()
+        }
+        else{
+            i = 0;
+        }
+    }, 300)
 }
 const animate = (color) => {
     $(`.${color}`).addClass('pressed')
@@ -138,11 +164,9 @@ $('.btn').click( (event) => {
         console.log('Event listener on')
         started = true
         console.log(started)
-        if(difficulty === 'easy')
-        {
-            nextSequence()
-            playSequence()
-        }
+        nextSequence()
+        playSequence()
+        
         if(started)
         {
             console.log('event listener off')
@@ -157,11 +181,6 @@ const restart = () =>
     pattern = []
     clickCount = -1
 }
-
-// if(difficulty === 'undefined')
-// {
-//     $('.gameContainer').toggle()
-// }
 
 const easy = () => {
     difficulty = 'easy'
