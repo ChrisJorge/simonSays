@@ -22,7 +22,10 @@ const nextSequence = () => {
     }
     else if (difficulty === 'hard')
     {
-
+        setTimeout(() => {
+            hardSequence(number)
+        }, 200)
+       
     }
 
 }
@@ -57,6 +60,10 @@ const playSequence = (i) => {
     playSound(pattern[i])
 } 
 
+const hardSequence = (number) => {
+    $(`.${colorArray[number]}`).fadeOut(150).fadeIn(150)
+    playSound(colorArray[number])
+}
 const timer = () => {
     playSequence(i)
     i += 1
@@ -82,7 +89,7 @@ const timerMedium = () => {
         else{
             i = 0;
         }
-    }, 300)
+    }, 200)
 }
 const animate = (color) => {
     $(`.${color}`).addClass('pressed')
@@ -165,7 +172,7 @@ $('.btn').click( (event) => {
         started = true
         console.log(started)
         nextSequence()
-        playSequence()
+        // playSequence()
         
         if(started)
         {
@@ -198,7 +205,7 @@ const medium = () => {
 }
 
 const hard = () => {
-    difficulty = 'medium'
+    difficulty = 'hard'
     $('.startContainer').css('display', 'none')
     $('.gameContainer').css('display', 'block')
     start()
