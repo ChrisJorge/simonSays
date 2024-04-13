@@ -4,6 +4,7 @@ let clickpattern = [];
 let audio = document.createElement('audio');
 let level = 0;
 let clickCount = -1;
+let i = 0
 let title = $('.title')[0];
 const nextSequence = () => {
     level ++;
@@ -39,8 +40,6 @@ const playSound = (sound) => {
     }
 }
 
-
-let i = 0
 const playSequence = (i) => {
     $(`.${pattern[i]}`).fadeOut(150).fadeIn(150)
     playSound(pattern[i])
@@ -80,26 +79,41 @@ const checkAnswer = (clicked) => {
         }
         else{
             console.log('wrong')
-            location.reload()
+            clickCount = -10;
+            gameOver()
         }
     }
 
     if (clickCount === pattern.length - 1)
     {
         clickCount = -1
-        setTimeout(nextSequence(),3000)
+        setTimeout(nextSequence(),2000)
     }
     
     
 }
 
-
+const gameOver = () => {
+    $('body').addClass('gameOver')
+    title.innerHTML = "Game Over, Press Any Key to Restart!"
+    setTimeout(()=>{
+        $('body').removeClass('gameOver');
+    }, 200)
+    audio.setAttribute('src', './sounds/wrong.mp3')
+    audio.play()
+}
 $('.btn').click( (event) => {
     let clicked = event.target.classList[1]
     console.log(pattern)
     playSound(clicked)
     animate(clicked)
+    if(clickCount !== -10)
+    {
     checkAnswer(clicked)
+    }
+    else{
+        gameOver()
+    }
 })
 
 
