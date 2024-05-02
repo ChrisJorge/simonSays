@@ -16,6 +16,7 @@ body {
     align-items: center;
     color: #FEF2BF;
     font-size: 30px;
+    height: 20vh;
   }
 
   .tutorialDropDown{
@@ -92,4 +93,17 @@ svg:hover + .dropDown{
 
 .tutorial:hover + .tutorialDropDown{
  display: block;
+}
+
+@media(max-width: 1300px)
+{
+  .btn, .bttn{
+    margin: 0px;
+    display: inline-block;
+    height: 200px;
+    width: 200px;
+    border: 10px solid black;
+    border-radius: 20%;
+  }
+
 }
