@@ -95,8 +95,16 @@ svg:hover + .dropDown{
  display: block;
 }
 
-@media(max-width: 1300px)
+
+@media(max-width: 1500px)
 {
+  .title, .title2 {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2.0rem;
+    margin:  5%;
+    color: #FEF2BF;
+  }
+
   .btn, .bttn{
     margin: 0px;
     display: inline-block;
@@ -105,5 +113,4 @@ svg:hover + .dropDown{
     border: 10px solid black;
     border-radius: 20%;
   }
-
 }
