@@ -2,11 +2,13 @@ let colorArray = ['green','red','blue','yellow'];
 let difficulty = 'undefined'
 let pattern = [];
 let audio = document.createElement('audio');
-let audioOn = true;
+let audioOn = 0;
 let level = 0;
 let clickCount = -1;
 let i = 0;
 let title = $('.title2')[0];
+let svg1 = document.querySelector('.svg1')
+let svg2 = document.querySelector('.svg2')
 const nextSequence = () => {
     console.log(level);
     level ++;
@@ -33,27 +35,32 @@ const nextSequence = () => {
 
 const playSound = (sound) => {
 
-    switch(sound)
-    {
-        case 'green':
-                audio.setAttribute('src', './sounds/green.mp3');
-                audio.play();
-                break;
-            case 'red':
-                audio.setAttribute('src', './sounds/red.mp3');
-                audio.play();
-                break;
-            case 'blue':
-                audio.setAttribute('src', './sounds/blue.mp3');
-                audio.play();
-                break;
-            case 'yellow':
-                audio.setAttribute('src', './sounds/yellow.mp3')
-                audio.play();
-                break;
-            default:
-                break;
-    };
+    if(audioOn % 2 == 0)
+        {
+            switch(sound)
+            {
+                case 'green':
+                        audio.setAttribute('src', './sounds/green.mp3');
+                        audio.play();
+                        break;
+                    case 'red':
+                        audio.setAttribute('src', './sounds/red.mp3');
+                        audio.play();
+                        break;
+                    case 'blue':
+                        audio.setAttribute('src', './sounds/blue.mp3');
+                        audio.play();
+                        break;
+                    case 'yellow':
+                        audio.setAttribute('src', './sounds/yellow.mp3')
+                        audio.play();
+                        break;
+                    default:
+                        break;
+            };
+        }else{
+            // console.log('Sound off')
+        }
 };
 
 const playSequence = (i) => {
@@ -216,4 +223,21 @@ const hard = () => {
 const changeDifficulty = () => {
     $('.startContainer').css('display', 'block');
     $('.gameContainer').css('display', 'none');
+}
+
+
+const ChangeSound = () => {
+    console.log('Working')
+    audioOn += 1
+    console.log(audioOn)
+    if (audioOn % 2 == 0)
+        {
+            svg2.style.display = 'none'
+            svg1.style.display = 'block'
+        }
+    else
+    {
+        svg1.style.display = 'none'
+        svg2.style.display = 'block'
+    }
 }
