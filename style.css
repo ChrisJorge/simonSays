@@ -1,139 +1,211 @@
 body {
-    text-align: center;
-    background-color: #011F3F;
-  }
-  
-  .title, .title2 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 3rem;
-    margin:  5%;
-    color: #FEF2BF;
-  }
-
-  .tutorial{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #FEF2BF;
-    font-size: 30px;
-    height: 20vh;
-  }
-
-  .tutorialDropDown{
-    display: none;
-    color: #FEF2BF;
-    font-size: 30px;
-  }
-  .tutorial svg{
-    margin-left: 10px;
-  }
-  p{
-    font-family: 'Press Start 2P', cursive;
-  }
-
-  .container {
-    display: block;
-    width: 50%;
-    margin: auto;
-  
-  }
-  
-  .center{
-    display: none;
-    justify-content: center;
-  }
-  .btn, .bttn{
-    margin: 25px;
-    display: inline-block;
-    height: 200px;
-    width: 200px;
-    border: 10px solid black;
-    border-radius: 20%;
-  }
-
-
-  
-  .gameOver {
-    background-color: red;
-    opacity: 0.8;
-  }
-  
-  .red {
-    background-color: red;
-  }
-  
-  .green {
-    background-color: green;
-  }
-  
-  .blue {
-    background-color: blue;
-  }
-  
-  .yellow {
-    background-color: yellow;
-  }
-  
-  .pressed {
-    box-shadow: 0 0 20px white;
-    background-color: grey;
-  }
-  
-  .dropDown{
-    display: none;
-  }
-
-svg:hover + .dropDown{
-  display: block;
+  text-align: center;
+  background-color: #011F3F;
 }
 
-.gameContainer{
+svg{
+  color: aliceblue;
+  margin-right: 15px;
+}
+
+.svg2{
   display: none;
 }
 
-.tutorial:hover + .tutorialDropDown{
- display: block;
+
+.title, .title2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 3rem;
+  margin:  5%;
+  color: #FEF2BF;
+}
+
+.tutorial{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #FEF2BF;
+  font-size: 30px;
+  height: 20vh;
+}
+
+.tutorialDropDown{
+  display: none;
+  color: #FEF2BF;
+  font-size: 30px;
+}
+.tutorial svg{
+  margin-left: 10px;
+}
+p{
+  font-family: 'Press Start 2P', cursive;
+}
+
+.container {
+  display: block;
+  width: 50%;
+  margin: auto;
+
+}
+
+.center{
+  display: none;
+  justify-content: center;
+}
+.btn, .bttn{
+  margin: 25px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
 }
 
 
+
+.gameOver {
+  background-color: red;
+  opacity: 0.8;
+}
+
+.red {
+  background-color: red;
+}
+
+.green {
+  background-color: green;
+}
+
+.blue {
+  background-color: blue;
+}
+
+.yellow {
+  background-color: yellow;
+}
+
+.pressed {
+  box-shadow: 0 0 20px white;
+  background-color: grey;
+}
+
+.dropDown{
+  display: none;
+}
+
+svg:hover + .dropDown{
+display: block;
+}
+
+.gameContainer{
+display: none;
+}
+
+.tutorial:hover + .tutorialDropDown{
+display: block;
+}
+
+.sound{
+  display: flex;
+  justify-content: right;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 60px;
+  height: 34px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 26px;
+  width: 26px;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(26px);
+  -ms-transform: translateX(26px);
+  transform: translateX(26px);
+}
+
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
 @media(max-width: 1500px)
 {
-  .title, .title2 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 2.0rem;
-    margin:  5%;
-    color: #FEF2BF;
-  }
+.title, .title2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 2.0rem;
+  margin:  5%;
+  color: #FEF2BF;
+}
 
-  .btn, .bttn{
-    margin: 0px;
-    display: inline-block;
-    height: 200px;
-    width: 200px;
-    border: 10px solid black;
-    border-radius: 20%;
-  }
+.btn, .bttn{
+  margin: 0px;
+  display: inline-block;
+  height: 200px;
+  width: 200px;
+  border: 10px solid black;
+  border-radius: 20%;
+}
 }
 
 @media(max-width: 500px)
 {
-  .title, .title2 {
-    font-family: 'Press Start 2P', cursive;
-    font-size: 1rem;
-    margin:  5%;
-    color: #FEF2BF;
-  }
+.title, .title2 {
+  font-family: 'Press Start 2P', cursive;
+  font-size: 1rem;
+  margin:  5%;
+  color: #FEF2BF;
+}
 
-  p{
-    font-size: 15px;
-  }
+p{
+  font-size: 15px;
+}
 
-  .btn, .bttn{
-    margin: 0px;
-    display: inline-block;
-    height: 150px;
-    width: 150px;
-    border: 10px solid black;
-    border-radius: 20%;
-  }
+.btn, .bttn{
+  margin: 0px;
+  display: inline-block;
+  height: 150px;
+  width: 150px;
+  border: 10px solid black;
+  border-radius: 20%;
+}
 }
