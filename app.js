@@ -149,7 +149,10 @@ const gameOver = () => {
         $('body').removeClass('gameOver');
     }, 200);
     audio.setAttribute('src', './sounds/wrong.mp3');
-    audio.play();
+    if(audioOn % 2 == 0)
+        {
+            audio.play();
+        }
     $('.center').css('display', 'flex');
     $(document).on('keypress', () => {
         $('.center').css('display', 'none');
